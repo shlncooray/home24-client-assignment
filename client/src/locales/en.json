@@ -1,6 +1,7 @@
 {
     "home": "Home",
     "loginButton": "Login",
+    "footerText": "Something here to give the footer a purpose!",
     "mainCategories.title": "Main Categories",
     "shopbByCategory": "Shop by Category",
     "shopyByRoom": "Shop by Room",

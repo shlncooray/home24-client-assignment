@@ -17,8 +17,10 @@ import { convertToCurrency } from 'utils/formatting';
 import { setSelectedProducts } from 'store/slices/cart.slice';
 import { setProduct } from 'store/slices/product.slice';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function ProductList() {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const currentProducts = useAppSelector(selectCurrentProducts);
@@ -43,6 +45,7 @@ function ProductList() {
                 mainLabel={cp.name}
                 rating={cp.rating}
                 priceLabel={convertToCurrency(cp.price, cp.currency).toString()}
+                mainActionLabel={t('productDetail.addToCart')}
                 onClick={() => {
                   dispatch(setProduct(cp));
                   navigate(`/products/${mainCategoryParam}/${cp.name}`);

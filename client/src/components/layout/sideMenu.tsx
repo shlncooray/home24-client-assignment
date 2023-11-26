@@ -14,31 +14,33 @@ import { MainCategory } from 'models/categories';
 import styles from './styles';
 
 function SideMenu({
+  title,
   items,
   isOpen,
   onClose,
   onItemClick,
 }: {
+  title: String;
   items: MainCategory[];
   isOpen: boolean;
   onClose: () => void;
   onItemClick: (path: String) => void;
 }) {
-  const { t } = useTranslation();
   return (
     <Container>
       <Drawer open={isOpen} onClose={onClose}>
-        <Paper sx={{ height: '100%', p: 2, pr: 4, overflow: 'auto' }}>
+        <Paper sx={styles.sideMenuPaper}>
           <IconButton onClick={onClose}>
             <CloseOutlined />
           </IconButton>
           <Typography variant="subtitle1" sx={{ pb: 1 }}>
-            {t('mainCategories.title')}
+            {title}
           </Typography>
           <Box sx={styles.menuItemsBox}>
             {items.length > 0 &&
               items.map((pc) => (
                 <Button
+                  key={`${pc.title}-${pc.id}`}
                   variant="text"
                   sx={{ textTransform: 'none' }}
                   onClick={() => {

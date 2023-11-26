@@ -16,8 +16,10 @@ jest.mock('react-i18next', () => ({
   }),
 }));
 
-test('renders LanguageSwitcher with default language', () => {
-  const component = renderer.create(<LanguageSwitcher languages={languages} />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+describe('LanguageSwitcher snapshot test', () => {
+  it('renders LanguageSwitcher with default language', () => {
+    const component = renderer.create(<LanguageSwitcher languages={languages} />);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

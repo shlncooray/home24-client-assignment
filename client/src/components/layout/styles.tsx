@@ -14,4 +14,7 @@ const menuItemsBox = {
   ml: 1,
 };
 
-export default { menuItemsBox };
+const toolBar = { display: 'flex', justifyContent: 'space-between' };
+const sideMenuPaper = { height: '100%', p: 2, pr: 4, overflow: 'auto' };
+
+export default { menuItemsBox, toolBar, sideMenuPaper };

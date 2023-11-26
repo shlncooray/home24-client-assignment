@@ -9,15 +9,15 @@
 
 import { Box, Typography } from '@mui/material';
 
-function AppFooter() {
+function AppFooter({ mainLabel, description }: { mainLabel: String; description: String }) {
   return (
     <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
       {/** Reading data from a env file - REACT_APP_BRAND_NAME */}
       <Typography variant="h6" align="center" gutterBottom>
-        {process.env.REACT_APP_BRAND_NAME}
+        {mainLabel}
       </Typography>
       <Typography variant="subtitle1" align="center" color="text.secondary" component="p">
-        Something here to give the footer a purpose!
+        {description}
       </Typography>
     </Box>
   );

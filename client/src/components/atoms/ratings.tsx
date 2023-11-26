@@ -10,11 +10,16 @@
 import { Box, Rating, Typography } from '@mui/material';
 import styles from './styles';
 
-function Ratings({ count, rate }: { count: number; rate: number }) {
+function Ratings({ count, rate, onClick }: { count: number; rate: number; onClick?: () => void }) {
   return (
     <Box sx={styles.ratingBox}>
-      <Rating name="no-value" value={rate} onClick={() => {}} />
-      <Typography gutterBottom variant="subtitle2" component="div">
+      <Rating data-testid={`rating-comp-${count}-${rate}`} value={rate} onClick={onClick} />
+      <Typography
+        data-testid={`rating-text-${count}-${rate}`}
+        gutterBottom
+        variant="subtitle2"
+        component="div"
+      >
         {`(${count})`}
       </Typography>
     </Box>

@@ -1,6 +1,7 @@
 {
     "home": "Startseite",
     "loginButton": "Anmeldung",
+    "footerText": "Something here to give the footer a purpose!",
     "mainCategories.title": "Hauptkategorien",
     "shopbByCategory": "Shoppe nach Kategorien",
     "shopyByRoom": "Shoppe nach Räumen",

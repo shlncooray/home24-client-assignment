@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { Favorite, AddShoppingCart } from '@mui/icons-material';
 import { Ratings } from 'components/atoms';
+import styles from './styles';
 
 function ComplexImageCard({
   image,
@@ -16,6 +17,7 @@ function ComplexImageCard({
   secondaryLabel,
   priceLabel,
   rating,
+  mainActionLabel,
   onClick,
   mainAction,
 }: {
@@ -27,29 +29,23 @@ function ComplexImageCard({
     average: number;
     count: number;
   };
+  mainActionLabel: String;
   onClick?: () => void;
   mainAction: () => void;
 }) {
   return (
-    <Card
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        mr: 2,
-      }}
-    >
+    <Card sx={styles.complexImageCard}>
       <CardActionArea onClick={onClick} sx={{ cursor: 'pointer' }}>
         <CardMedia
           component="img"
           height="200px"
-          sx={{ width: '100%', flex: '1 0 auto', objectFit: 'scale-down' }}
+          sx={styles.complexImageCardMedia}
           image={image}
           title={mainLabel}
           onClick={() => {}}
         />
         <IconButton
-          sx={{ position: 'absolute', top: 1, right: 1 }}
+          sx={styles.complexImageCardIcon}
           color="primary"
           aria-label="like"
           onClick={(e) => {
@@ -59,7 +55,7 @@ function ComplexImageCard({
         >
           <Favorite />
         </IconButton>
-        <CardContent sx={{ flex: '1 0 auto' }}>
+        <CardContent sx={styles.complexImageCardContent}>
           <Typography gutterBottom variant="subtitle1" component="div">
             {priceLabel}
           </Typography>
@@ -79,7 +75,7 @@ function ComplexImageCard({
             }}
           >
             <AddShoppingCart />
-            <Typography variant="body2">Add to Cart</Typography>
+            <Typography variant="body2">{mainActionLabel}</Typography>
           </Button>
         </CardContent>
       </CardActionArea>
