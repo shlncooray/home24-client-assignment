@@ -1,12 +1,3 @@
-/*
- * File name: category.slice.spec.ts
- * Purpose: Category Slice related state management unit tests
- * Created on Mon Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { CategorySliceState, MainCategory } from 'models/categories';
 import categoryReducer, { setMainCategory } from './category.slice';
 

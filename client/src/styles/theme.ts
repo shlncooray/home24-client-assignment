@@ -1,12 +1,3 @@
-/*
- * File name: theme.ts
- * Purpose: This file is responsible to keep all MUI theme related custom styles
- * Created on Mon Nov 27 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { createTheme } from '@mui/material/styles';
 import configs from '../project.config.json';
 

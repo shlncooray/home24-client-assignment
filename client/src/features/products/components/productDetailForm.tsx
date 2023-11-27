@@ -1,14 +1,5 @@
-/*
- * File name: productDetailForm.tsx
- * Purpose: Product Details & Add to Cart quanityt form
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch } from 'hooks/reduxHooks';
 import { Product } from 'models/product';
 import { convertToCurrency } from 'utils/formatting';
 import { setSelectedProducts } from 'store/slices/cart.slice';

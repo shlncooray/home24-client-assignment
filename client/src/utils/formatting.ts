@@ -1,13 +1,4 @@
-/*
- * File name: formatting.ts
- * Purpose: Formatting related utility functionalites
- * Created on Mon Nov 27 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
-import { currencies } from 'constants/utilConstant';
+import { CURRENCIES } from 'constants/utilConstant';
 
 /**
  * currencyPicker responsible to return a currency type based on given currency value
@@ -15,7 +6,7 @@ import { currencies } from 'constants/utilConstant';
  * @returns
  */
 const currencyPicker = (value: String): { name: string; symbol: string } | undefined => {
-  return currencies.find((c) => c.name === value);
+  return CURRENCIES.find((c) => c.name === value);
 };
 
 /**

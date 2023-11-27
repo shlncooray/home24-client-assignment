@@ -1,12 +1,3 @@
-/*
- * File name: selectors.ts
- * Purpose: All the selectors of RTK reducers
- * Created on Sun Nov 20 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { AppState } from 'store/store';
 
 // Auth Related Selectors

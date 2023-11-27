@@ -1,13 +1,3 @@
-/*
- * File name: store.ts
- * Purpose: App Redux Store
- * Created on Sun Nov 20 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
-/* eslint-disable import/no-cycle */
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import authReducer from './slices/auth.slice';
 import categoryReducer from './slices/category.slice';

@@ -24,14 +24,6 @@ const cartSummaryOuterBox = {
   mb: 1,
   justifyContent: 'space-between',
 };
-/*
- * File name: styles.tsx
- * Purpose: Shopping Cart related MUI Styles
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
 
 const cartSummaryTextWrapper = { display: 'flex', mt: 1, justifyContent: 'space-between' };
 const cartSummaryButtonWrapper = {

@@ -1,13 +1,3 @@
-/*
- * File name: api.slice.ts
- * Purpose: RTK Query Slice for REST API Calls
- * Created on Sun Nov 20 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
-/* eslint-disable import/no-cycle */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { setCredentials, logOut } from './slices/auth.slice';

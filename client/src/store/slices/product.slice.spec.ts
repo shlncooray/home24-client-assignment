@@ -1,12 +1,3 @@
-/*
- * File name: product.slice.spec.ts
- * Purpose: Product Slice related unit tests
- * Created on Mon Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Product, ProductCategory, ProductListResponse, ProductSliceState } from 'models/product';
 import productReducer, {
   setProduct,

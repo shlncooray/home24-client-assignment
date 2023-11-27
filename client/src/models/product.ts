@@ -1,12 +1,3 @@
-/*
- * File name: product.ts
- * Purpose: Products related interfaces/types
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 type ProductSliceState = {
   product: Product | null;
   products: Product[] | [];

@@ -1,12 +1,3 @@
-/*
- * File name: imageSlider.tsx
- * Purpose: Image Banner which can be used across application
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { useTheme } from '@mui/material/styles';
 import { Box, Button, Typography } from '@mui/material';
 import { HomePageBanner } from 'models/metaData';

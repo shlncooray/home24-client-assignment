@@ -1,12 +1,3 @@
-/*
- * File name: cart.helper.ts
- * Purpose: Helper Function for Shopping Cart Operations
- * Created on Sun Nov 25 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 /* eslint-disable no-param-reassign */
 import { CartProduct, CartSliceState } from 'models/cart';
 import { Product } from 'models/product';

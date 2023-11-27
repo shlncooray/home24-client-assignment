@@ -36,7 +36,9 @@
     "no-shadow": "off",
     "react/prop-types": "off",
     "react/require-default-props": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "import/prefer-default-export": "off",
+    "import/no-cycle": "off"
   },
   "ignorePatterns": [
     "**/*.config.{ts,js}",

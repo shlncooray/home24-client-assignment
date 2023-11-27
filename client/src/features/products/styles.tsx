@@ -1,12 +1,3 @@
-/*
- * File name: styles.tsx
- * Purpose: Products Related MUI Styles
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 const productContainer = {
   flexGrow: 1,
   background: '#EEEEEF',

@@ -1,12 +1,3 @@
-/*
- * File name: auth.slice.ts
- * Purpose: Authentication related RTK set reducers
- * Created on Sun Nov 20 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const authSlice = createSlice({

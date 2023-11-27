@@ -1,20 +1,22 @@
-/*
- * File name: productDetail.tsx
- * Purpose: Product Detail Page
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Button, Container, Grid, Skeleton, Typography } from '@mui/material';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from 'hooks/reduxHooks';
 import { selectCurrentProduct } from 'store/slices/selectors';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ProductDetailImage from '../components/productDetailImage';
 import ProductDetailForm from '../components/productDetailForm';
-import styles from '../styles';
+
+const styles = {
+  productDetailContainer: { flexGrow: 1, background: '#EEEEEF', pt: 3, minHeight: '680px' },
+  categoriesTopBarLarge: {
+    ml: '0px !important',
+    pl: '0px',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  buttonText: { textTransform: 'none' },
+  homeButtonText: { mr: 2 },
+};
 
 /**  #TODO - Make this page refreshable. There is an issue when reloading
  *   a Product Detail page due to it's not manage in local storage
@@ -39,14 +41,14 @@ function ProductDetail() {
     <Container sx={styles.productDetailContainer} maxWidth={false}>
       {/** #TODO - Make this into a Breadcum and move to a common component */}
       <Container sx={styles.categoriesTopBarLarge}>
-        <Button variant="text" sx={{ textTransform: 'none' }} onClick={() => navigate('/')}>
+        <Button variant="text" sx={styles.buttonText} onClick={() => navigate('/')}>
           <Typography sx={styles.homeButtonText} variant="h6">
             {t('home')} /
           </Typography>
         </Button>
         <Button
           variant="text"
-          sx={{ textTransform: 'none' }}
+          sx={styles.buttonText}
           onClick={() => navigate(`/products/${mainCategoryParam}`)}
         >
           <Typography sx={styles.homeButtonText} variant="h6">

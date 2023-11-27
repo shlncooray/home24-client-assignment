@@ -1,16 +1,7 @@
-/*
- * File name: appBar.tsx
- * Purpose: Application Appbar to use across the app
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { AppBar, Badge, Box, Button, IconButton, Link, Toolbar } from '@mui/material';
 import { Menu, AddShoppingCart } from '@mui/icons-material';
 import LanguageSwitcher from 'components/molecules/languageSwitcher';
-import { languages } from 'constants/metaData';
+import { LAGUAGSES } from 'constants/metaData';
 import styles from './styles';
 
 function Home24AppBar({
@@ -39,7 +30,7 @@ function Home24AppBar({
         </Box>
 
         <Box sx={{ display: 'flex' }}>
-          <LanguageSwitcher languages={languages} />
+          <LanguageSwitcher languages={LAGUAGSES} />
           <Button href={loginButtonPath.toString()} variant="outlined" sx={{ my: 1, mx: 1.5 }}>
             {loginButtonLabel}
           </Button>

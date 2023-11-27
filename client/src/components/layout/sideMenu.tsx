@@ -1,12 +1,3 @@
-/*
- * File name: sideMenu.tsx
- * Purpose: Application Main Side Menu
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Box, Button, Container, Drawer, IconButton, Paper, Typography } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
 import { MainCategory } from 'models/categories';

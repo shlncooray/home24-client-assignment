@@ -1,17 +1,8 @@
-/*
- * File name: cartItems.tsx
- * Purpose: Shopping Cart Items List
- * Created on Sun Nov 25 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { DeleteForeverOutlined } from '@mui/icons-material';
 import { Box, Divider, IconButton, Paper, Typography } from '@mui/material';
 import { CartProduct } from 'models/cart';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch } from 'hooks/reduxHooks';
 import { setRemoveProduct } from 'store/slices/cart.slice';
 import { convertToCurrency } from 'utils/formatting';
 import { useNavigate } from 'react-router-dom';

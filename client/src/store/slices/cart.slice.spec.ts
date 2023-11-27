@@ -1,15 +1,8 @@
-/*
- * File name: cart.slice.spec.ts
- * Purpose: Cart Slice State related unit tests
- * Created on Mon Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
 import { Product } from 'models/product';
 import cartReducer, { setRemoveProduct, setSelectedProducts } from './cart.slice';
 
 describe('Test - cart slice state management', () => {
+  // Initial state of cart slice
   const initialState = {
     selectedProducts: [],
     cartQuantity: 0,

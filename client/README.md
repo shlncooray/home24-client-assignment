@@ -102,6 +102,7 @@ Enable git hooks
           ├── index.tsx # Feature entry point
           ├── style.tsx # Feature related custom MUI styles
     ├── helpers # Helper functions to do some business logics
+    ├── hooks # Custom hooks to use across application features
     ├── locales # Laguage json files
     ├── models # Feature or app specific typescript interfaces & types
     ├── pages # Landing pages i.e. Main outlet, Login page

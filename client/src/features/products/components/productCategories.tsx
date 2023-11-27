@@ -1,15 +1,6 @@
-/*
- * File name: productCategories.tsx
- * Purpose: Product Catory Side Bar
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Box, Button, Grid, Paper, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from 'hooks/reduxHooks';
 import { selectCurrentProductCategories } from 'store/slices/selectors';
 import { ProductCategory } from 'models/product';
 import { useNavigate } from 'react-router-dom';

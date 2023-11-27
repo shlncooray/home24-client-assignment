@@ -1,17 +1,10 @@
-/*
- * File name: categories.ts
- * Purpose: Categories Cart related interfaces/types
- * Created on Sun Nov 23 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
+type Category = {
+  name: string;
+  id: string;
+};
 
 type CategorySliceState = {
-  mainCategory: {
-    name: string;
-    id: string;
-  } | null;
+  mainCategory: Category | null;
 };
 
 type MainCategory = {
@@ -26,4 +19,4 @@ type RoomCategory = {
   id: string;
 };
 
-export type { CategorySliceState, MainCategory, RoomCategory };
+export type { Category, CategorySliceState, MainCategory, RoomCategory };

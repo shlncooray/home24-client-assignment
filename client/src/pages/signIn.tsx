@@ -1,12 +1,3 @@
-/*
- * File name: signIn.tsx
- * Purpose: Sample Signing Page
- * Created on Sun Nov 23 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import React from 'react';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import {

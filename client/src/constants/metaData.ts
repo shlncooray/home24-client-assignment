@@ -1,17 +1,7 @@
-/*
- * File name: metaData.ts
- * Purpose: Application related meta data
- * -- All these content ideally should pick from a meta data api as external data set
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { MainCategory, RoomCategory } from 'models/categories';
 import { Language } from 'models/metaData';
 
-const languages: Language[] = [
+const LAGUAGSES: Language[] = [
   {
     value: 'en',
     label: 'English',
@@ -22,7 +12,7 @@ const languages: Language[] = [
   },
 ];
 
-const productCategories: MainCategory[] = [
+const PRODUCT_CATEGORIES: MainCategory[] = [
   {
     imageUrl:
       'https://images.prismic.io/home24-production/95e21c70-4ded-4b42-9cc2-fd9224fd1cc5_hp-nav-sofas.jpg',
@@ -67,7 +57,7 @@ const productCategories: MainCategory[] = [
   },
 ];
 
-const roomCategories: RoomCategory[] = [
+const ROOM_CATEGORIES: RoomCategory[] = [
   {
     imageUrl:
       'https://images.prismic.io/home24-production/594e2380-5b77-43fe-a6c2-4943caa4224b_visualNavi_Spring_wohnen.jpg',
@@ -94,7 +84,7 @@ const roomCategories: RoomCategory[] = [
   },
 ];
 
-const homePageBanner = {
+const HOME_PAGE_BANNER = {
   topLabel: 'Bis zum 23. November',
   mainTitle: 'This is fantastic!',
   description: 'Bis zum 23. November',
@@ -103,4 +93,4 @@ const homePageBanner = {
     'https://images.prismic.io/home24-production/7e3ef0ce-a799-4bc1-b9b0-3017465f8b42_DE_RTT_4176x1182_BM_W4_vp.jpg?auto=compress,format&rect=0,0,4176,1182&w=2784&h=788',
 };
 
-export { productCategories, roomCategories, languages, homePageBanner };
+export { PRODUCT_CATEGORIES, ROOM_CATEGORIES, LAGUAGSES, HOME_PAGE_BANNER };

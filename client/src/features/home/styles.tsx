@@ -1,12 +1,3 @@
-/*
- * File name: styles.tsx
- * Purpose: Home page/components related MUI styles
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 const shopbByCategoryArrowBox = {
   display: 'flex',
   flexDirection: 'row',

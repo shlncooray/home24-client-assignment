@@ -1,12 +1,3 @@
-/*
- * File name: product.slice.ts
- * Purpose: Products related RTK set reducers
- * Created on Sun Nov 23 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { createSlice } from '@reduxjs/toolkit';
 import { ProductSliceState } from 'models/product';
 

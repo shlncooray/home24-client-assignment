@@ -1,14 +1,4 @@
-/*
- * File name: postGraphql.slice.ts
- * Purpose: Products related Graphql RTK endpoints
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import graphqlApiSlice from 'store/graphqlApi.slice';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { gql } from 'graphql-request';
 import { ProductListResponse } from 'models/product';
 

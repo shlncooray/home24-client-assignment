@@ -1,12 +1,3 @@
-/*
- * File name: index.tsx
- * Purpose: Starting point of Home24 React App
- * Created on Mon Nov 27 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';

@@ -1,11 +1,3 @@
-/*
- * File name: cart.helper.spec.ts
- * Purpose: Unit Tests for the shopping cart related functionalites
- * Created on Mon Nov 27 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
 import { CartSliceState } from 'models/cart';
 import { Product } from 'models/product';
 import { addToCart, removeFromCart } from './cart.helper';

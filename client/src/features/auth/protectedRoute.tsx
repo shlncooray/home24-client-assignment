@@ -1,14 +1,5 @@
-/*
- * File name: protectedRoute.tsx
- * Purpose: Protected Route Outlet
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { useLocation, Navigate, Outlet } from 'react-router-dom';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from 'hooks/reduxHooks';
 import { selectCurrentToken } from 'store/slices/selectors';
 
 // #TODO - This is just a placeholder to return a Protected route when access.

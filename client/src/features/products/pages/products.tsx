@@ -1,12 +1,3 @@
-/*
- * File name: products.tsx
- * Purpose: Product List Landing Page
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import {
   Button,
   Container,
@@ -18,48 +9,48 @@ import {
 } from '@mui/material';
 import { TuneOutlined } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { selectCurrentCategory, selectCurrentProductResponse } from 'store/slices/selectors';
-import { Product, ProductCategory } from 'models/product';
-import { setProductCategories, setProductResponse, setProducts } from 'store/slices/product.slice';
+import { useAppDispatch } from 'hooks/reduxHooks';
+import { setProductResponse } from 'store/slices/product.slice';
 import theme from 'styles/theme';
 import { useLazyGetProductListQuery } from 'store/apiSlices/productsGraphql.slice';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getMainCategory } from 'helpers/product.helper';
 import { useTranslation } from 'react-i18next';
+import { useProductFetcher, useSetFetchedProductList } from 'hooks/productsHooks';
 import ProductList from '../components/productList';
 import ProductCategoriesBar from '../components/productCategories';
-import style from '../styles';
+
+const styles = {
+  productContainer: {
+    flexGrow: 1,
+    background: '#EEEEEF',
+    pt: 4,
+  },
+  categoriesTopBarSmall: { p: '0px !important', mt: 0 },
+  categoriesTopBarLarge: {
+    ml: '0px !important',
+    pl: '0px',
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  buttonText: { textTransform: 'none' },
+  homeButtonText: { mr: 2 },
+  categoryNameText: { pt: 1, pb: 1, mr: 2 },
+};
 
 function Products() {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { mainCategory: mainCategoryParam } = useParams();
-  const mainCategory = useAppSelector(selectCurrentCategory);
-  const currentProductList = useAppSelector(selectCurrentProductResponse);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const [isOpen, setIsOpen] = useState(false);
 
   const [getProducts, { data: productResponse, isSuccess, isLoading: isProductsLoading }] =
     useLazyGetProductListQuery();
 
-  const [isOpen, setIsOpen] = useState(false);
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
-
-  useEffect(() => {
-    const getAsyncProducts = async (id: String) => {
-      await getProducts(id).unwrap();
-    };
-    if (mainCategory) {
-      getAsyncProducts(mainCategory.id);
-    }
-
-    if (!mainCategory && mainCategoryParam) {
-      if (getMainCategory(mainCategoryParam) !== undefined) {
-        const id = getMainCategory(mainCategoryParam)?.id;
-        getAsyncProducts(id!);
-      }
-    }
-  }, [mainCategory, mainCategoryParam]);
+  const getAsyncProducts = async (id: String) => {
+    await getProducts(id).unwrap();
+  };
 
   useEffect(() => {
     if (productResponse && isSuccess) {
@@ -67,38 +58,12 @@ function Products() {
     }
   }, [productResponse, isSuccess]);
 
-  useEffect(() => {
-    if (currentProductList) {
-      const productList: Product[] = [];
-      const currentProductCategoryList: ProductCategory[] = [];
-      currentProductList.categories.forEach((c) => {
-        c.categoryArticles.articles.forEach((ca) => {
-          productList.push({
-            sku: ca.sku,
-            name: ca.name,
-            variantName: ca.variantName,
-            image: ca.images[0].path,
-            price: ca.prices.regular.value,
-            currency: ca.prices.currency,
-            rating: ca.ratings,
-            url: `/products/${mainCategoryParam}/${ca.name}`,
-          });
-        });
-        c.childrenCategories.list.forEach((cc) => {
-          currentProductCategoryList.push({
-            name: cc.name,
-            urlPath: cc.urlPath,
-          });
-        });
-      });
-      dispatch(setProducts(productList));
-      dispatch(setProductCategories(currentProductCategoryList));
-    }
-  }, [currentProductList]);
+  useProductFetcher(mainCategoryParam, getAsyncProducts);
+  useSetFetchedProductList(mainCategoryParam);
 
   if (isProductsLoading) {
     return (
-      <Container sx={style.productContainer} maxWidth={false}>
+      <Container sx={styles.productContainer} maxWidth={false}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={3} height="750px">
             <Skeleton />
@@ -116,22 +81,22 @@ function Products() {
   }
 
   return (
-    <Container sx={style.productContainer} maxWidth={false}>
+    <Container sx={styles.productContainer} maxWidth={false}>
       {isSmallScreen ? (
-        <Container sx={style.categoriesTopBarSmall}>
+        <Container sx={styles.categoriesTopBarSmall}>
           <Button variant="outlined" startIcon={<TuneOutlined />} onClick={() => setIsOpen(true)}>
-            Product Categories
+            {t('categoriesTitle')}
           </Button>
         </Container>
       ) : (
         // #TODO - Make this into a Breadcum and move to a common component
-        <Container sx={style.categoriesTopBarLarge}>
-          <Button variant="text" sx={{ textTransform: 'none' }} onClick={() => navigate('/')}>
-            <Typography sx={style.homeButtonText} variant="h6">
+        <Container sx={styles.categoriesTopBarLarge}>
+          <Button variant="text" sx={styles.buttonText} onClick={() => navigate('/')}>
+            <Typography sx={styles.homeButtonText} variant="h6">
               {t('home')} /
             </Typography>
           </Button>
-          <Typography sx={style.categoryNameText} variant="h6">
+          <Typography sx={styles.categoryNameText} variant="h6">
             {t(`productCategories.${mainCategoryParam?.toLowerCase()}`)}
           </Typography>
         </Container>

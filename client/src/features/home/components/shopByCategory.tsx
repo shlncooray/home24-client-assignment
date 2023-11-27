@@ -1,20 +1,11 @@
-/*
- * File name: shopByCategory.tsx
- * Purpose: Shop by Category card slider
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Box, Container, IconButton, Typography } from '@mui/material';
 import { ArrowCircleRightOutlined, ArrowCircleLeftOutlined } from '@mui/icons-material';
 import { SimpleImageCard } from 'components/molecules';
-import { productCategories } from 'constants/metaData';
+import { PRODUCT_CATEGORIES } from 'constants/metaData';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch } from 'hooks/reduxHooks';
 import { setMainCategory } from 'store/slices/category.slice';
 import styles from '../styles';
 
@@ -25,6 +16,7 @@ function ShopByCategory() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrollable, setScrollable] = useState(false);
+  const ptLength = PRODUCT_CATEGORIES.length;
 
   const onCategoryClick = (id: string, name: string) => {
     navigate(`/products/${name}`);
@@ -32,13 +24,11 @@ function ShopByCategory() {
   };
 
   const handleNext = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % productCategories.length);
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % ptLength);
   };
 
   const handlePrev = () => {
-    setCurrentSlide(
-      (prevSlide) => (prevSlide - 1 + productCategories.length) % productCategories.length,
-    );
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + ptLength) % ptLength);
   };
 
   useEffect(() => {
@@ -78,7 +68,7 @@ function ShopByCategory() {
 
       <Box ref={containerRef} sx={styles.shopbByCategorySliderBox}>
         <Box sx={styles.shopbByCategorySliderBoxInner(currentSlide)}>
-          {productCategories.map((p) => (
+          {PRODUCT_CATEGORIES.map((p) => (
             <SimpleImageCard
               key={p.id}
               image={p.imageUrl}

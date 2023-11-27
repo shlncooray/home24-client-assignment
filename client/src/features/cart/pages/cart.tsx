@@ -1,14 +1,5 @@
-/*
- * File name: cart.tsx
- * Purpose: Shopping Cart Page(Screen)
- * Created on Sun Nov 24 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Container, Grid, Skeleton } from '@mui/material';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from 'hooks/reduxHooks';
 import {
   selectCartQuantity,
   selectCartTotal,

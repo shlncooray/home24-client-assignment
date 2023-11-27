@@ -1,12 +1,3 @@
-/*
- * File name: category.slice.ts
- * Purpose: Category related RTK set reducers
- * Created on Sun Nov 22 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { createSlice } from '@reduxjs/toolkit';
 import { CategorySliceState } from 'models/categories';
 

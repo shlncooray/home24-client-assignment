@@ -1,11 +1,3 @@
-/*
- * File name: App.tsx
- * Purpose: Home24 App routes
- * Created on Mon Nov 27 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { Home } from 'features/home';
 import SignIn from 'pages/signIn';

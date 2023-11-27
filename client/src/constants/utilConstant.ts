@@ -1,13 +1,6 @@
-/*
- * File name: utilConstant.ts
- * Purpose: Application related utility constants
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
+import { Currency } from 'models/metaData';
 
-const currencies = [
+const CURRENCIES: Currency[] = [
   {
     name: 'EUR',
     symbol: '€',
@@ -18,5 +11,7 @@ const currencies = [
   },
 ];
 
-// eslint-disable-next-line import/prefer-default-export
-export { currencies };
+const EURO = 'EUR';
+const SHIPPING_COST_PER = 0.1;
+
+export { CURRENCIES, EURO, SHIPPING_COST_PER };

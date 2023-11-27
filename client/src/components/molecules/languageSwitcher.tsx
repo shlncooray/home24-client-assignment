@@ -1,6 +1,5 @@
 import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { Language } from 'models/metaData';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 function LanguageSwitcher({ languages }: { languages: Language[] }) {

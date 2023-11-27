@@ -1,13 +1,4 @@
-/*
- * File name: product.helper.ts
- * Purpose: Helper Function for Products related Operations
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
-import { productCategories } from 'constants/metaData';
+import { PRODUCT_CATEGORIES } from 'constants/metaData';
 import { MainCategory } from 'models/categories';
 
 /**
@@ -16,8 +7,7 @@ import { MainCategory } from 'models/categories';
  * @returns
  */
 const getMainCategory = (name: String): MainCategory | undefined => {
-  return productCategories.find((pc) => pc.title === name);
+  return PRODUCT_CATEGORIES.find((pc) => pc.title === name);
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export { getMainCategory };

@@ -1,12 +1,3 @@
-/*
- * File name: home.tsx
- * Purpose: App Landing Page
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Container } from '@mui/material';
 import { ShopByCategory, ShopByRoom, SliderBanner } from 'features/home';
 

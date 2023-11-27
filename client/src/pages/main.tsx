@@ -1,19 +1,10 @@
-/*
- * File name: main.tsx
- * Purpose: Application Main Container Page
- * Created on Sun Nov 20 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Home24AppBar, AppFooter, SideMenu } from 'components/layout';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from 'hooks/reduxHooks';
 import { selectCartQuantity } from 'store/slices/selectors';
-import { productCategories } from 'constants/metaData';
+import { PRODUCT_CATEGORIES } from 'constants/metaData';
 import { useTranslation } from 'react-i18next';
 
 function Main() {
@@ -56,7 +47,7 @@ function Main() {
       <AppFooter mainLabel={process.env.REACT_APP_BRAND_NAME!} description={t('footerText')} />
       <SideMenu
         title={t('mainCategories.title')}
-        items={productCategories}
+        items={PRODUCT_CATEGORIES}
         isOpen={sideMenuOpen}
         onClose={() => setSideMenuOpen(false)}
         onItemClick={onCategoryClick}

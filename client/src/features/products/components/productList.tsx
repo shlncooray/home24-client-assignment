@@ -1,15 +1,6 @@
-/*
- * File name: productList.tsx
- * Purpose: Product List Component
- * Created on Sun Nov 26 2023
- *
- * Copyright (c) 2023 Shelan Cooray
- * Author: shlncooray@gmail.com
- */
-
 import { Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
 import { selectCurrentProducts } from 'store/slices/selectors';
 import { Product } from 'models/product';
 import ComplexImageCard from 'components/molecules/complexImageCard';
