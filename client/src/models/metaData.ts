@@ -7,17 +7,17 @@
  * Author: shlncooray@gmail.com
  */
 
-interface Language {
+type Language = {
   value: string;
   label: string;
-}
+};
 
-interface HomePageBanner {
+type HomePageBanner = {
   topLabel: string;
   mainTitle: string;
   description: string;
   button: string;
   imgPath: string;
-}
+};
 
 export type { Language, HomePageBanner };

@@ -7,22 +7,23 @@
  * Author: shlncooray@gmail.com
  */
 
-interface CategorySliceState {
+type CategorySliceState = {
   mainCategory: {
     name: string;
     id: string;
   } | null;
-}
-interface MainCategory {
-  title: string;
-  imageUrl: string;
-  id: string;
-}
+};
 
-interface RoomCategory {
+type MainCategory = {
   title: string;
   imageUrl: string;
   id: string;
-}
+};
+
+type RoomCategory = {
+  title: string;
+  imageUrl: string;
+  id: string;
+};
 
 export type { CategorySliceState, MainCategory, RoomCategory };

@@ -16,9 +16,9 @@ import { Ratings } from 'components/atoms';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-interface CartFormInputs {
+type CartFormInputs = {
   productQty: number;
-}
+};
 
 function ProductDetailForm({ currentProduct }: { currentProduct: Product }) {
   const { t } = useTranslation();

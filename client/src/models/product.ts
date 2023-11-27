@@ -7,14 +7,14 @@
  * Author: shlncooray@gmail.com
  */
 
-interface ProductSliceState {
+type ProductSliceState = {
   product: Product | null;
   products: Product[] | [];
   productCategories: ProductCategory[] | [];
   productResponse: ProductListResponse | null;
-}
+};
 
-interface Product {
+type Product = {
   name: string;
   variantName: string;
   sku: string;
@@ -23,19 +23,19 @@ interface Product {
   currency: string;
   rating: Rating;
   url?: string;
-}
+};
 
-interface ProductCategory {
+type ProductCategory = {
   name: string;
   urlPath: string;
-}
+};
 
-interface Rating {
+type Rating = {
   count: number;
   average: number;
-}
+};
 
-interface Articles {
+type Articles = {
   images: { path: string }[];
   name: string;
   variantName: string;
@@ -47,29 +47,29 @@ interface Articles {
     };
   };
   ratings: Rating;
-}
+};
 
-interface CategoryArticle {
+type CategoryArticle = {
   articles: Articles[];
-}
+};
 
-interface ChildrenCategories {
+type ChildrenCategories = {
   list: {
     name: string;
     urlPath: string;
   }[];
-}
+};
 
-interface Category {
+type Category = {
   articleCount: number;
   name: string;
   childrenCategories: ChildrenCategories;
   categoryArticles: CategoryArticle;
-}
+};
 
-interface ProductListResponse {
+type ProductListResponse = {
   categories: Category[];
-}
+};
 
 export type {
   ChildrenCategories,

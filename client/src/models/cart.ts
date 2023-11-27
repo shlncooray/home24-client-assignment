@@ -9,15 +9,15 @@
 
 import { Product } from './product';
 
-interface CartProduct {
+type CartProduct = {
   quantity: number;
   product: Product;
-}
+};
 
-interface CartSliceState {
+type CartSliceState = {
   selectedProducts: CartProduct[];
   cartQuantity: number;
   cartTotal: number;
-}
+};
 
 export type { CartProduct, CartSliceState };
