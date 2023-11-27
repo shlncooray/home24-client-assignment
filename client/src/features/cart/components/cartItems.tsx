@@ -14,6 +14,9 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'store/hooks';
 import { setRemoveProduct } from 'store/slices/cart.slice';
 import { convertToCurrency } from 'utils/formatting';
+import { useNavigate } from 'react-router-dom';
+import { setProduct } from 'store/slices/product.slice';
+import { toast } from 'react-toastify';
 import styles from '../styles';
 
 function CartItems({
@@ -24,6 +27,7 @@ function CartItems({
   cartQuantity: number;
 }) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   return (
     <Paper sx={styles.cartItemsPaper}>
@@ -33,7 +37,14 @@ function CartItems({
 
       {cartItems.map((s) => (
         <>
-          <Box sx={styles.cartItemsOuterBox}>
+          <Box
+            sx={styles.cartItemsOuterBox}
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(setProduct(s.product));
+              navigate(`${s.product.url}`);
+            }}
+          >
             <Box width={300} sx={styles.cartItemImageBox}>
               <img
                 src={s.product.image}
@@ -46,8 +57,12 @@ function CartItems({
               <Box sx={styles.cartItemContentBoxInner}>
                 <Typography variant="subtitle1">{s.product.name}</Typography>
                 <IconButton
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     dispatch(setRemoveProduct(s.product));
+                    toast.warn(
+                      `${t('cart.removePrefix')} "${s.product.name}" ${t('cart.removeSuffix')}`,
+                    );
                   }}
                   aria-label="Remove from cart"
                 >

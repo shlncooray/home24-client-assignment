@@ -1,5 +1,7 @@
 # Notes - Home24 Tech Task - Client Application
 
+> **NOTE: Time to time I had to remove cache behaviour of server in order to get different product categories**
+
 # New Features added to original assignment
 
 I wanted to make given project into something similar to home24.de website with given product list via graphql API. I've did bit investigation around graphql API and current web site to get few more category ids to make it more dynamic look. While keep in mind that limited product & product category availability due to caching enabled on server project, I've added following new features to given project.

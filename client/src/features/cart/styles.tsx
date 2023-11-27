@@ -7,6 +7,7 @@ const cartItemsOuterBox = {
   flexDirection: 'row',
   justifyContent: 'space-between',
   mb: 3,
+  cursor: 'pointer',
 };
 const cartItemImageBox = { display: 'flex', flex: 0.3, flexDirection: 'row', alignItems: 'center' };
 const cartItemContentBox = { display: 'flex', flex: 0.7, flexDirection: 'column', ml: 3, mt: 2 };

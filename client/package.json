@@ -105,6 +105,11 @@
         "lines": 80,
         "statements": -10
       }
-    }
+    },
+    "coveragePathIgnorePatterns": [
+      "styles.tsx$",
+      "model/",
+      "\\.d\\.ts$"
+    ]
   }
 }

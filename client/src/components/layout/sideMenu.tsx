@@ -9,7 +9,6 @@
 
 import { Box, Button, Container, Drawer, IconButton, Paper, Typography } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
 import { MainCategory } from 'models/categories';
 import styles from './styles';
 

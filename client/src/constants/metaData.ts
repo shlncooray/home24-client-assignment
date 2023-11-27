@@ -1,6 +1,7 @@
 /*
  * File name: metaData.ts
  * Purpose: Application related meta data
+ * -- All these content ideally should pick from a meta data api as external data set
  * Created on Sun Nov 26 2023
  *
  * Copyright (c) 2023 Shelan Cooray
@@ -62,7 +63,7 @@ const productCategories: MainCategory[] = [
     imageUrl:
       'https://images.prismic.io/home24-production/95e21c70-4ded-4b42-9cc2-fd9224fd1cc5_hp-nav-sofas.jpg',
     title: 'Furniture',
-    id: '156126',
+    id: '156124',
   },
 ];
 
@@ -93,4 +94,13 @@ const roomCategories: RoomCategory[] = [
   },
 ];
 
-export { productCategories, roomCategories, languages };
+const homePageBanner = {
+  topLabel: 'Bis zum 23. November',
+  mainTitle: 'This is fantastic!',
+  description: 'Bis zum 23. November',
+  button: 'Nicht verpassen',
+  imgPath:
+    'https://images.prismic.io/home24-production/7e3ef0ce-a799-4bc1-b9b0-3017465f8b42_DE_RTT_4176x1182_BM_W4_vp.jpg?auto=compress,format&rect=0,0,4176,1182&w=2784&h=788',
+};
+
+export { productCategories, roomCategories, languages, homePageBanner };

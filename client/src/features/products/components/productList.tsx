@@ -18,6 +18,7 @@ import { setSelectedProducts } from 'store/slices/cart.slice';
 import { setProduct } from 'store/slices/product.slice';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 function ProductList() {
   const { t } = useTranslation();
@@ -39,8 +40,10 @@ function ProductList() {
       <Grid container spacing={2}>
         {localCurrentProducts.length > 0 &&
           localCurrentProducts.map((cp) => (
-            <Grid item key={cp.name} lg={4} md={6} sm={6} xs={12}>
+            <Grid item key={`${cp.name}-${cp.price}`} lg={4} md={6} sm={6} xs={12}>
+              {/* #TODO - Implement Like button functionality */}
               <ComplexImageCard
+                key={cp.name}
                 image={cp.image}
                 mainLabel={cp.name}
                 rating={cp.rating}
@@ -51,6 +54,9 @@ function ProductList() {
                   navigate(`/products/${mainCategoryParam}/${cp.name}`);
                 }}
                 mainAction={() => {
+                  toast.success(
+                    `${t('cart.successAddPrefix')} "${cp.name}" ${t('cart.successAddSuffix')}`,
+                  );
                   dispatch(setSelectedProducts({ product: cp, quantity: 1 }));
                 }}
               />

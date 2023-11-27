@@ -16,6 +16,9 @@ import ProductDetailImage from '../components/productDetailImage';
 import ProductDetailForm from '../components/productDetailForm';
 import styles from '../styles';
 
+/**  #TODO - Make this page refreshable. There is an issue when reloading
+ *   a Product Detail page due to it's not manage in local storage
+ */
 function ProductDetail() {
   const { t } = useTranslation();
   const navigate = useNavigate();

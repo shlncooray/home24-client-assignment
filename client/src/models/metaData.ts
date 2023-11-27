@@ -12,5 +12,12 @@ interface Language {
   label: string;
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export type { Language };
+interface HomePageBanner {
+  topLabel: string;
+  mainTitle: string;
+  description: string;
+  button: string;
+  imgPath: string;
+}
+
+export type { Language, HomePageBanner };

@@ -47,6 +47,7 @@ function ProductCategoriesBar() {
             {localCurrentProductsCategories.length > 0 &&
               localCurrentProductsCategories.map((pc) => (
                 <Button
+                  key={pc.name}
                   variant="text"
                   sx={{ textTransform: 'none' }}
                   onClick={() => onCategoryClick(pc.urlPath)}

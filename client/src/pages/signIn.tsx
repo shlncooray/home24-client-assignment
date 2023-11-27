@@ -23,12 +23,16 @@ import {
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setCredentials } from 'store/slices/auth.slice';
 
 function SignIn() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    navigate('/dashboard');
+    dispatch(setCredentials({ user: 'someusername', accessToken: 'jwtToken' }));
+    navigate('/myAccount');
   };
 
   return (
@@ -45,7 +49,7 @@ function SignIn() {
         justifyContent="center"
         alignItems="center"
       >
-        <img src="/logo.svg" width={400} alt="logo" />
+        <img src="/logo.svg" width={400} alt="logo" color="primary" />
       </Grid>
       <Grid item xs={12} sm={8} md={4} component={Paper} elevation={6} square>
         <Box

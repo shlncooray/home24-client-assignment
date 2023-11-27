@@ -1,6 +1,6 @@
 /*
  * File name: graphqlApi.slice.ts
- * Purpose: RTK Query Slice for Graphql API Calls
+ * Purpose: RTK Query Slice for Graphql API Calls Wrapper
  * Created on Sun Nov 20 2023
  *
  * Copyright (c) 2023 Shelan Cooray

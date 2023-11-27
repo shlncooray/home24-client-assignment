@@ -1,5 +1,12 @@
 # h24-tech-task-client by Shelan Leonardo Cooray
 
+> \*\*NOTE: This Project runs and build with following framework version
+>
+> - TypeScript: 4.9.5
+> - NodeJS: v19.6.1
+> - yarn: 1.22.19
+> - npm: 9.4.0\*\*
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TypeScript template.
 
 ## Frameworks used
@@ -15,11 +22,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Commit convention made easy with [Commitlint](https://commitlint.js.org/#/)
 - [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/docs/react-testing-library/intro) for unit testing.
 - [Cypres](https://www.cypress.io/) for End-to-end tests and integration testing
-
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction) - to add notifications to app
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, can run:
 
 ### `yarn start`
 
@@ -40,19 +47,8 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ### `yarn lint`
 
@@ -86,34 +82,53 @@ Enable git hooks
 ├── .commitlintrc.json # commitlint config file
 ├── .prettierrc.json # prettier configurations
 ├── .stylelintrc # stylelint configurations
-├── nginx.conf # nginx configurations
 ├── package.json
 ├── .gitignore
-├── jsconfig.json # absolute path configurations
 ├── README.md # this file
 ├── public # public assets
+├── cypress # Cypress E2E Testing suite
 └── src
-    ├── components # React components folder
-    ├── features # features folder
-    ├── hooks # custom react hooks
-    ├── pages
-    ├── resources #images and other project resources
-    ├── store # redux store
-    ├── styles
-    ├── App.jsx # main component
-    ├── index.css
-    ├── index.js # entry point file
+    ├── components # Atomic components folder
+       ├── atoms # Atomic components folder
+          ├── index.tsx # Component set entry point
+          ├── componentName.tsx # Component file
+          ├── componentName.spec.tsx # Snapshot test file
+          ...
+    ├── constants # Application and feature specific constants, meta data
+    ├── features # Application specific feature folder
+       ├── featureName # Application specific feature folder (i.e. products)
+          ├── components # Feature specific components
+          ├── pages # Feature Specific pages
+          ├── index.tsx # Feature entry point
+          ├── style.tsx # Feature related custom MUI styles
+    ├── helpers # Helper functions to do some business logics
+    ├── locales # Laguage json files
+    ├── models # Feature or app specific typescript interfaces & types
+    ├── pages # Landing pages i.e. Main outlet, Login page
+    ├── store # Redux store
+       ├── apliSlice # Contains RTK query api slices and endpoints
+       ├── slices # Contains Redux(RTK) reducers and unit test file
+          ├── feature.slice.ts # Feature related reducer
+          ├── feature.slice.spec.ts # Feature related reducer unit test
+       ├── api.slice.ts # RTK Query slice for REST API calls wrapper
+       ├── graphqlApi.slice.ts # RTK Query slice for Graphql API calls wrapper
+       ├── store.ts # Main redux store file
+    ├── styles # To maintain app specific custom MUI styles(overrides)
+    ├── utils # App specific utility functions and unit tests
+    ├── App.tsx # main component
+    ├── index.ccss
+    ├── index.tsx # entry point file
     └── setupTests.js # configuration to run jest tests
-    └── project.config.json # configuration to run jest tests
+    └── project.config.json # Project Configurations such as App name, brand name, colors and etc
 ```
 
 ## Code quality tools
 
-Code quality tools provide static check of your code and try to fix errors. Checks are triggered inside pre-commit hook.
+Code quality tools provide static check the code and try to fix errors. Checks are triggered inside pre-commit hook.
 
 ### Eslint
 
-ESLint is designed to be flexible and configurable for your use case. You can turn off every rule and run only with basic syntax validation or mix and match the bundled rules and your custom rules to fit the needs of your project. This template use lint set according to [Airbnb](https://github.com/airbnb/javascript) style guide — as part of their style guide with custom set, tailored for reasonable and clean development process.`.eslintrc` file specify configuration information for an entire directory and all of its subdirectories.
+`.eslintrc` file specify configuration information for an entire directory and all of its subdirectories.
 
 ### Prettier
 
@@ -171,4 +186,3 @@ Builds the app for production to the build folder. It correctly bundles React in
 ```
 $ npm run build
 ```
-

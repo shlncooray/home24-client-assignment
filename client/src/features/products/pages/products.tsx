@@ -81,6 +81,7 @@ function Products() {
             price: ca.prices.regular.value,
             currency: ca.prices.currency,
             rating: ca.ratings,
+            url: `/products/${mainCategoryParam}/${ca.name}`,
           });
         });
         c.childrenCategories.list.forEach((cc) => {

@@ -7,7 +7,7 @@
  * Author: shlncooray@gmail.com
  */
 
-import ImageSlider from './imageSlider';
+import ImageBanner from './imageBanner';
 
 // eslint-disable-next-line import/prefer-default-export
-export { ImageSlider };
+export { ImageBanner };

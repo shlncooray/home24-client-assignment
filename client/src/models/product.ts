@@ -22,6 +22,7 @@ interface Product {
   price: number;
   currency: string;
   rating: Rating;
+  url?: string;
 }
 
 interface ProductCategory {

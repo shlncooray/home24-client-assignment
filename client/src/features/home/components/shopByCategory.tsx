@@ -64,7 +64,7 @@ function ShopByCategory() {
     <Container sx={{ mt: 3 }} maxWidth={false}>
       {scrollable && (
         <Box sx={styles.shopbByCategoryArrowBox}>
-          <Typography variant="subtitle1">{t('shopbByCategory')}</Typography>
+          <Typography variant="subtitle1">{t('shopByCategory')}</Typography>
           <Box>
             <IconButton onClick={handlePrev}>
               <ArrowCircleLeftOutlined fontSize="large" color="primary" />

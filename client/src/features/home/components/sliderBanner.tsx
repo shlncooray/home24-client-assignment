@@ -7,10 +7,12 @@
  * Author: shlncooray@gmail.com
  */
 
-import { ImageSlider } from 'components/organisms';
+import { ImageBanner } from 'components/organisms';
+import { homePageBanner } from 'constants/metaData';
 
+// #TODO - Make this as a Banner carousel
 function SliderBanner() {
-  return <ImageSlider />;
+  return <ImageBanner banner={homePageBanner} />;
 }
 
 export default SliderBanner;

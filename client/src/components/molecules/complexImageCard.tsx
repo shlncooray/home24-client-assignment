@@ -34,16 +34,25 @@ function ComplexImageCard({
   mainAction: () => void;
 }) {
   return (
-    <Card sx={styles.complexImageCard}>
-      <CardActionArea onClick={onClick} sx={{ cursor: 'pointer' }}>
+    <Card key={mainLabel} sx={styles.complexImageCard}>
+      <CardActionArea
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          if (onClick !== undefined) {
+            onClick();
+          }
+        }}
+        sx={{ cursor: 'pointer' }}
+      >
         <CardMedia
           component="img"
           height="200px"
           sx={styles.complexImageCardMedia}
           image={image}
           title={mainLabel}
-          onClick={() => {}}
         />
+        {/* #TODO - Implement Like button functionality */}
         <IconButton
           sx={styles.complexImageCardIcon}
           color="primary"
@@ -68,6 +77,7 @@ function ComplexImageCard({
           <Ratings count={rating ? rating.count : 0} rate={rating ? rating.average : 0} />
           <Button
             sx={{ mt: 1 }}
+            data-testId={mainLabel}
             onClick={(e) => {
               e.stopPropagation();
               e.preventDefault();

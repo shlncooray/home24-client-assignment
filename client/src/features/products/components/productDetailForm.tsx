@@ -65,6 +65,7 @@ function ProductDetailForm({ currentProduct }: { currentProduct: Product }) {
             render={({ field }) => (
               <TextField
                 {...field}
+                sx={{ mt: '5px' }}
                 type="number"
                 InputProps={{ inputProps: { min: 1, max: 50 } }}
                 {...register('productQty', { max: 50, min: 0 })}

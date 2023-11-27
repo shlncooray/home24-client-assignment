@@ -11,6 +11,12 @@
 import { CartProduct, CartSliceState } from 'models/cart';
 import { Product } from 'models/product';
 
+/**
+ * addToCart responsible for adding a new item/s to shopping cart and increase the quantity & totals
+ * @param state Current shopping cart state
+ * @param product Product to be add
+ * @param qty Quantity
+ */
 const addToCart = (state: CartSliceState, product: Product, qty: number) => {
   const convertedQty = parseInt(qty.toString(), 10);
   if (state.selectedProducts.length > 0) {
@@ -40,6 +46,11 @@ const addToCart = (state: CartSliceState, product: Product, qty: number) => {
   state.cartTotal = cartTotal;
 };
 
+/**
+ * removeFromCart responsible for remove given product from current shopping cart state
+ * @param state Current shopping cart state
+ * @param product Product to be removed
+ */
 const removeFromCart = (state: CartSliceState, product: Product) => {
   state.selectedProducts = [...state.selectedProducts.filter((s) => s.product.sku !== product.sku)];
 
