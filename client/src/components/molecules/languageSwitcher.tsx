@@ -2,6 +2,10 @@ import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material'
 import { Language } from 'models/metaData';
 import { useTranslation } from 'react-i18next';
 
+const styles = {
+  lsSelectFormContorl: { mt: 1.5, minWidth: 120 },
+};
+
 function LanguageSwitcher({ languages }: { languages: Language[] }) {
   const { i18n } = useTranslation();
 
@@ -11,7 +15,7 @@ function LanguageSwitcher({ languages }: { languages: Language[] }) {
   };
 
   return (
-    <FormControl sx={{ mt: 1.5, minWidth: 120 }} size="small">
+    <FormControl sx={styles.lsSelectFormContorl} size="small">
       <Select
         data-testid="language-selecter"
         value={i18n.language}

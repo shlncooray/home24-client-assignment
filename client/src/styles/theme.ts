@@ -1,6 +1,10 @@
 import { createTheme } from '@mui/material/styles';
 import configs from '../project.config.json';
 
+/** This is the place where DEFAULT REACT MUI theme styles getting overrided
+ *  Whenever developer wants to override default MUI styles such as Typography, Colors and even
+ *  Components like Button, TextField etc. can override from here.
+ */
 const theme = createTheme({
   palette: {
     mode: 'light',

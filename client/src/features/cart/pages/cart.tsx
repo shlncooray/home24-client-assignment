@@ -7,7 +7,10 @@ import {
 } from 'store/slices/selectors';
 import CartItems from '../components/cartItems';
 import CartSummary from '../components/cartSummary';
-import styles from '../styles';
+
+const styles = {
+  cartContainer: { flexGrow: 1, background: '#EEEEEF', pt: 3, minHeight: '680px' },
+};
 
 function Cart() {
   const selectedProductList = useAppSelector(selectSelectedProducts);

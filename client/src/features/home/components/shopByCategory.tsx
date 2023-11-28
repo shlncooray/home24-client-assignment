@@ -5,9 +5,27 @@ import { PRODUCT_CATEGORIES } from 'constants/metaData';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'hooks/reduxHooks';
 import { setMainCategory } from 'store/slices/category.slice';
-import styles from '../styles';
+import { useAppDispatch } from 'hooks/reduxHooks';
+
+const styles = {
+  shopbByCategoryArrowBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    mb: 1,
+  },
+  shopbByCategorySliderBox: { display: 'flex', overflow: 'hidden', position: 'relative' },
+  shopbByCategorySliderBoxInner: (currentSlide: number) => {
+    return {
+      pt: 1,
+      pb: 1,
+      display: 'flex',
+      transition: 'transform 0.5s',
+      transform: `translateX(-${currentSlide * 80}%)`,
+    };
+  },
+};
 
 function ShopByCategory() {
   const { t } = useTranslation();

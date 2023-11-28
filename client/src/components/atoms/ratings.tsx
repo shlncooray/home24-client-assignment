@@ -1,5 +1,13 @@
 import { Box, Rating, Typography } from '@mui/material';
-import styles from './styles';
+
+const styles = {
+  ratingBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyItems: 'center',
+  },
+};
 
 function Ratings({ count, rate, onClick }: { count: number; rate: number; onClick?: () => void }) {
   return (

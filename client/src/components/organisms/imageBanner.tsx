@@ -2,22 +2,23 @@ import { useTheme } from '@mui/material/styles';
 import { Box, Button, Typography } from '@mui/material';
 import { HomePageBanner } from 'models/metaData';
 
+const styles = {
+  ibOuterBox: { maxWidth: '100%', flexGrow: 1 },
+  ibImageBox: {
+    height: 394,
+    display: 'block',
+    overflow: 'hidden',
+    width: '100%',
+  },
+  ibContentBox: { position: 'absolute', top: '10%', left: '5%' },
+};
+
 function ImageBanner({ banner }: { banner: HomePageBanner }) {
   const theme = useTheme();
   return (
-    <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-      <Box
-        component="img"
-        sx={{
-          height: 394,
-          display: 'block',
-          overflow: 'hidden',
-          width: '100%',
-        }}
-        src={banner.imgPath}
-        alt={banner.mainTitle}
-      />
-      <Box sx={{ position: 'absolute', top: '10%', left: '5%' }}>
+    <Box sx={styles.ibOuterBox}>
+      <Box component="img" sx={styles.ibImageBox} src={banner.imgPath} alt={banner.mainTitle} />
+      <Box sx={styles.ibContentBox}>
         <Typography sx={{ mb: 3 }} variant="subtitle2" color={theme.palette.common.white}>
           {banner.topLabel}
         </Typography>

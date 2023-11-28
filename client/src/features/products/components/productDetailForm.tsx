@@ -11,6 +11,10 @@ type CartFormInputs = {
   productQty: number;
 };
 
+const styles = {
+  productCardContent: { flex: '1 0 auto' },
+};
+
 function ProductDetailForm({ currentProduct }: { currentProduct: Product }) {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -28,7 +32,7 @@ function ProductDetailForm({ currentProduct }: { currentProduct: Product }) {
   return (
     <Grid item lg={6} md={6} sm={12} xs={12} sx={{ mt: 2, mb: 4 }}>
       <Card sx={{ mb: 2 }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
+        <CardContent sx={styles.productCardContent}>
           <Typography gutterBottom variant="h4" component="div">
             {currentProduct.name}
           </Typography>
@@ -42,24 +46,20 @@ function ProductDetailForm({ currentProduct }: { currentProduct: Product }) {
         </CardContent>
       </Card>
       <Card component="form" onSubmit={handleSubmit(onSubmit)}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
+        <CardContent sx={styles.productCardContent}>
           <Typography gutterBottom variant="h5" component="div">
             {t('productDetail.addToCartTitle')}
           </Typography>
           <Controller
             control={control}
             name="productQty"
-            rules={{
-              min: 0,
-              max: 20,
-            }}
             render={({ field }) => (
               <TextField
                 {...field}
                 sx={{ mt: '5px' }}
                 type="number"
                 InputProps={{ inputProps: { min: 1, max: 50 } }}
-                {...register('productQty', { max: 50, min: 0 })}
+                {...register('productQty', { min: 0, max: 50 })}
               />
             )}
           />

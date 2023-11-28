@@ -1,7 +1,16 @@
 import { Box, Button, Container, Drawer, IconButton, Paper, Typography } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
 import { MainCategory } from 'models/categories';
-import styles from './styles';
+
+const styles = {
+  sideMenuPaper: { height: '100%', p: 2, pr: 4, overflow: 'auto' },
+  sideMenuItemsBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
+    ml: 1,
+  },
+};
 
 function SideMenu({
   title,
@@ -26,7 +35,7 @@ function SideMenu({
           <Typography variant="subtitle1" sx={{ pb: 1 }}>
             {title}
           </Typography>
-          <Box sx={styles.menuItemsBox}>
+          <Box sx={styles.sideMenuItemsBox}>
             {items.length > 0 &&
               items.map((pc) => (
                 <Button

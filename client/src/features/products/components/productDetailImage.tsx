@@ -1,10 +1,14 @@
 import { Card, CardMedia, Grid } from '@mui/material';
 import { Product } from 'models/product';
-import styles from '../styles';
+
+const styles = {
+  productImageGrid: { mt: 2, mb: 4 },
+  productDetailImage: { width: '100%', flex: '1 0 auto', objectFit: 'contain' },
+};
 
 function ProductDetailImage({ currentProduct }: { currentProduct: Product }) {
   return (
-    <Grid item lg={6} md={6} sm={12} xs={12} sx={{ mt: 2, mb: 4 }}>
+    <Grid item lg={6} md={6} sm={12} xs={12} sx={styles.productImageGrid}>
       <Card>
         <CardMedia
           component="img"

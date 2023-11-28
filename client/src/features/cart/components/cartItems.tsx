@@ -8,7 +8,25 @@ import { convertToCurrency } from 'utils/formatting';
 import { useNavigate } from 'react-router-dom';
 import { setProduct } from 'store/slices/product.slice';
 import { toast } from 'react-toastify';
-import styles from '../styles';
+
+const styles = {
+  cartItemsPaper: { width: '100%', mt: 1, p: 3 },
+  cartItemsOuterBox: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    mb: 3,
+    cursor: 'pointer',
+  },
+  cartItemImageBox: { display: 'flex', flex: 0.3, flexDirection: 'row', alignItems: 'center' },
+  cartItemContentBox: { display: 'flex', flex: 0.7, flexDirection: 'column', ml: 3, mt: 2 },
+  cartItemContentBoxInner: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+};
 
 function CartItems({
   cartItems,

@@ -1,45 +1,14 @@
 import graphqlApiSlice from 'store/graphqlApi.slice';
 import { gql } from 'graphql-request';
 import { ProductListResponse } from 'models/product';
+import { getProductsQuery } from 'graphql/productQueries';
 
 export const extendedApiSlice = graphqlApiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getProductList: builder.query<ProductListResponse, String>({
-      query: (id) => ({
+    getProductList: builder.query<ProductListResponse, { id: String; locale: String }>({
+      query: ({ id, locale }: { id: String; locale: String }) => ({
         document: gql`
-          {
-            categories: productLists(ids: "${id}", locale: de_DE) {
-              name
-              articleCount
-              childrenCategories: childrenProductLists {
-                list {
-                  name
-                  urlPath
-                }
-              }
-              categoryArticles: articlesList(first: 50) {
-                articles {
-                  name
-                  variantName
-                  sku
-                  variantName
-                  prices {
-                    currency
-                    regular {
-                      value
-                    }
-                  }
-                  ratings {
-                    count
-                    average
-                  }
-                  images(format: WEBP, maxWidth: 200, maxHeight: 200, limit: 1) {
-                    path
-                  }
-                }
-              }
-            }
-          }
+          ${getProductsQuery(id, locale)}
         `,
       }),
     }),

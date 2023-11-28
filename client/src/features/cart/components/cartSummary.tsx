@@ -2,7 +2,24 @@ import { Paper, Box, Typography, Divider, Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { convertToCurrency } from 'utils/formatting';
 import { EURO, SHIPPING_COST_PER } from 'constants/utilConstant';
-import styles from '../styles';
+
+const styles = {
+  cartSummaryPaper: { width: '100%', mt: 1, p: 3 },
+  cartSummaryOuterBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    mb: 1,
+    justifyContent: 'space-between',
+  },
+
+  cartSummaryTextWrapper: { display: 'flex', mt: 1, justifyContent: 'space-between' },
+  cartSummaryButtonWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'stretch',
+    mt: 2,
+  },
+};
 
 function CartSummary({ cartQuantity, cartTotal }: { cartQuantity: number; cartTotal: number }) {
   const { t } = useTranslation();

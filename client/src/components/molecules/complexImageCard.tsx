@@ -9,7 +9,18 @@ import {
 } from '@mui/material';
 import { Favorite, AddShoppingCart } from '@mui/icons-material';
 import { Ratings } from 'components/atoms';
-import styles from './styles';
+
+const styles = {
+  complexImageCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    mr: 2,
+  },
+  complexImageCardMedia: { width: '100%', flex: '1 0 auto', objectFit: 'scale-down' },
+  complexImageCardIcon: { position: 'absolute', top: 1, right: 1 },
+  complexImageCardContent: { flex: '1 0 auto' },
+};
 
 function ComplexImageCard({
   image,

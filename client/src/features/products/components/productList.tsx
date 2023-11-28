@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Paper, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks';
 import { selectCurrentProducts } from 'store/slices/selectors';
@@ -11,7 +11,19 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
-function ProductList() {
+const styles = {
+  productListGrid: { mt: 2, mb: 4 },
+  productErrorPaper: {
+    display: 'flex',
+    flexGrow: 1,
+    height: '200px',
+    mt: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+};
+
+function ProductList({ isError }: { isError: boolean }) {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -27,9 +39,9 @@ function ProductList() {
   }, [currentProducts]);
 
   return (
-    <Grid item lg={9} md={9} sm={12} xs={12} sx={{ mt: 2, mb: 4 }}>
-      <Grid container spacing={2}>
-        {localCurrentProducts.length > 0 &&
+    <Grid item lg={9} md={9} sm={12} xs={12} sx={styles.productListGrid}>
+      <Grid container spacing={2} sx={{ minHeight: '550px' }}>
+        {localCurrentProducts.length > 0 && !isError ? (
           localCurrentProducts.map((cp) => (
             <Grid item key={`${cp.name}-${cp.price}`} lg={4} md={6} sm={6} xs={12}>
               {/* #TODO - Implement Like button functionality */}
@@ -52,7 +64,12 @@ function ProductList() {
                 }}
               />
             </Grid>
-          ))}
+          ))
+        ) : (
+          <Paper sx={styles.productErrorPaper}>
+            <Typography>-No Data-</Typography>
+          </Paper>
+        )}
       </Grid>
     </Grid>
   );

@@ -9,6 +9,7 @@ import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 import enTranslation from 'locales/en.json';
 import deTranslation from 'locales/de.json';
+import configs from 'project.config.json';
 import { store } from './store/store';
 import App from './App';
 import theme from './styles/theme';
@@ -23,7 +24,7 @@ i18n.use(initReactI18next).init({
     en: { translation: enTranslation },
     de: { translation: deTranslation },
   },
-  lng: 'en',
+  lng: configs.DEFAULT_LANGUAGE_CODE_SHORT,
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,

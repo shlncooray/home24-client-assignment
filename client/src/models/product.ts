@@ -1,8 +1,8 @@
-type ProductSliceState = {
-  product: Product | null;
-  products: Product[] | [];
-  productCategories: ProductCategory[] | [];
-  productResponse: ProductListResponse | null;
+type ProductRequestArgs = { id: String; locale: String };
+
+type Rating = {
+  count: number;
+  average: number;
 };
 
 type Product = {
@@ -19,11 +19,6 @@ type Product = {
 type ProductCategory = {
   name: string;
   urlPath: string;
-};
-
-type Rating = {
-  count: number;
-  average: number;
 };
 
 type Articles = {
@@ -62,10 +57,18 @@ type ProductListResponse = {
   categories: Category[];
 };
 
+type ProductSliceState = {
+  product: Product | null;
+  products: Product[] | [];
+  productCategories: ProductCategory[] | [];
+  productResponse: ProductListResponse | null;
+};
+
 export type {
   ChildrenCategories,
   Product,
   ProductCategory,
   ProductListResponse,
+  ProductRequestArgs,
   ProductSliceState,
 };

@@ -2,7 +2,10 @@ import { AppBar, Badge, Box, Button, IconButton, Link, Toolbar } from '@mui/mate
 import { Menu, AddShoppingCart } from '@mui/icons-material';
 import LanguageSwitcher from 'components/molecules/languageSwitcher';
 import { LAGUAGSES } from 'constants/metaData';
-import styles from './styles';
+
+const styles = {
+  toolBar: { display: 'flex', justifyContent: 'space-between' },
+};
 
 function Home24AppBar({
   cartItems,

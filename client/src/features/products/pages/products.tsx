@@ -16,6 +16,8 @@ import { useLazyGetProductListQuery } from 'store/apiSlices/productsGraphql.slic
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useProductFetcher, useSetFetchedProductList } from 'hooks/productsHooks';
+import configs from 'project.config.json';
+import { toast } from 'react-toastify';
 import ProductList from '../components/productList';
 import ProductCategoriesBar from '../components/productCategories';
 
@@ -45,11 +47,18 @@ function Products() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
   const [isOpen, setIsOpen] = useState(false);
 
-  const [getProducts, { data: productResponse, isSuccess, isLoading: isProductsLoading }] =
+  const [getProducts, { data: productResponse, isSuccess, isLoading: isProductsLoading, isError }] =
     useLazyGetProductListQuery();
 
   const getAsyncProducts = async (id: String) => {
-    await getProducts(id).unwrap();
+    try {
+      // #TODO - Graphql API locale is currently not changing since EN related data couldn't able to find from API
+      // Uncomment below line to see error scenario in API data. You may see two toast messages since it's React.StrictMode
+      // await getProducts({ id, locale: 'en_EN' }).unwrap();
+      await getProducts({ id, locale: configs.DEFUALT_LANGUAGE_CODE }).unwrap();
+    } catch (error) {
+      toast.error('Something went wrong while fetching data..!');
+    }
   };
 
   useEffect(() => {
@@ -105,18 +114,18 @@ function Products() {
       {/* For Large & Medium Screen */}
       {!isSmallScreen && (
         <Grid container spacing={3}>
-          <ProductCategoriesBar />
-          <ProductList />
+          <ProductCategoriesBar isError={isError} />
+          <ProductList isError={isError} />
         </Grid>
       )}
       {/* For Small to XSmall Screen */}
       {isSmallScreen && (
         <Grid container spacing={3}>
-          <ProductList />
+          <ProductList isError={isError} />
         </Grid>
       )}
       <Drawer open={isOpen} onClose={() => setIsOpen(!isOpen)} anchor="right">
-        <ProductCategoriesBar />
+        <ProductCategoriesBar isError={isError} />
       </Drawer>
     </Container>
   );
