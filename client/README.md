@@ -101,6 +101,7 @@ Enable git hooks
           ├── pages # Feature Specific pages
           ├── index.tsx # Feature entry point
           ├── style.tsx # Feature related custom MUI styles
+    ├── graphql # Graphql queries
     ├── helpers # Helper functions to do some business logics
     ├── hooks # Custom hooks to use across application features
     ├── locales # Laguage json files
