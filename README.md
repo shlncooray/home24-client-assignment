@@ -70,10 +70,6 @@ Fix lints issues according to style guide set
 
 Create a test coverage report.
 
-### `yarn prepare`
-
-Enable git hooks
-
 ## File Structure
 
 ```shell script
